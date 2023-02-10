@@ -1,12 +1,14 @@
 from selenium.webdriver.common.by import By
 
 
-class CustomerPage:
-    INTRA_IN_CONT_BUTTON = (By.ID,"id=SubmitLogin")
-    EMAIL_INPUT = (By.ID,"email")
-    PASSWORD_INPUT = (By.ID,"passwd")
+class AutentificarePage:
+
+    INTRA_IN_CONT_BUTTON = (By.ID, 'SubmitLogin')
+    EMAIL_INPUT = (By.ID, "email")
+    PASSWORD_INPUT = (By.ID, "passwd")
     ERROR_MESSAGE_TEXT = (By.CSS_SELECTOR, "ol>li")
-    def __int__(self, browser):
+
+    def __init__(self, browser):
         self.browser = browser
 
     def click_intra_in_cont(self):
@@ -20,7 +22,6 @@ class CustomerPage:
 
     def get_error_message_text(self):
         return self.browser.find_element(*self.ERROR_MESSAGE_TEXT).text
-
 
 
 
